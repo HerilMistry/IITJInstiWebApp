@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: #f8f9fc;
+  font-family: Arial, sans-serif;
+}
+
+.mess-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.mess-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mess-header h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #374151;
+}
+
+.report-link {
+  font-size: 14px;
+  color: #64748b;
+  text-decoration: none;
+}
+
+.day-selector {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.day-selector span {
+  padding: 5px;
+  transition: 0.3s;
+}
+
+.day-selector span:hover {
+  color: black;
+}
+
+.day-selector .active {
+  font-weight: bold;
+  color: black;
+  border-bottom: 2px solid green;
+}
+
+.progress-bar {
+  width: 100px;
+  height: 5px;
+  background: #16a34a;
+  margin-top: 5px;
+}
+
+.filter-options {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.filter {
+  background: #e2e8f0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.veg {
+  color: green;
+}
+
+.non-veg {
+  color: red;
+}
+
+.jain {
+  color: blue;
+}
+
+.paid-extras {
+  margin-top: 15px;
+  padding: 8px 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background: white;
+  cursor: pointer;
+}
+
+.day-content {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
