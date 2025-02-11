@@ -4,11 +4,9 @@ import VerticalNavbar from './components/VerticalNavbar'
 function App() {
 
   return (
-    <div className='flex'>
-      <VerticalNavbar>
-        <h1 className='text-white'>Vertical Navbar</h1>
-      </VerticalNavbar>
-      <div className='w-full bg-gray-200'>
+    <div className='flex pt-[33px] pl-[33px]'>
+      <VerticalNavbar/>
+      <div className='w-full bg-[#EFF3FA]'>
         <h1 className='text-center'>Main Content</h1>
       </div>
     </div>
