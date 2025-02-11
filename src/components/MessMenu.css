@@ -1,0 +1,78 @@
+.mess-container {
+    background: #f8f9fc;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .mess-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .mess-header h1 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #374151;
+  }
+  
+  .report-link {
+    font-size: 14px;
+    color: #64748b;
+    text-decoration: none;
+  }
+  
+  .day-selector {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #64748b;
+  }
+  
+  .day-selector .active {
+    font-weight: bold;
+    color: black;
+  }
+  
+  .progress-bar {
+    width: 100px;
+    height: 5px;
+    background: #16a34a;
+    margin-top: 5px;
+  }
+  
+  .filter-options {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .filter {
+    background: #e2e8f0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .veg {
+    color: green;
+  }
+  
+  .non-veg {
+    color: red;
+  }
+  
+  .jain {
+    color: blue;
+  }
+  
+  .paid-extras {
+    margin-top: 15px;
+    padding: 8px 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+  }
+  
