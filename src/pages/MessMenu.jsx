@@ -33,7 +33,7 @@ const MessMenu = () => {
               <button
                 key={index}
                 onClick={() => setDayIndex(index)}
-                className={`uppercase font-semibold py-1 px-5 pb-3 border-b-8  ${(dayIndex === index) ? 'text-black border-[#97DB50]' : 'text-[#687A8C] border-transparent'}`}
+                className={`uppercase cursor-pointer font-semibold py-1 px-5 pb-3 border-b-8  ${(dayIndex === index) ? 'text-black border-[#97DB50]' : 'text-[#687A8C] border-transparent'}`}
               >
                 {element}
               </button>

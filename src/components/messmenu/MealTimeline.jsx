@@ -29,9 +29,9 @@ export default function MealTimeline() {
         }
         return prevTime;
       });
-    }, 1000); // Check every second
+    }, 1000); 
 
-    return () => clearInterval(interval); // Cleanup on unmount
+    return () => clearInterval(interval); 
   }, []);
 
 
