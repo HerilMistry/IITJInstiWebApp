@@ -7,7 +7,7 @@ const meals = [
   { name: "Dinner", time: "7:45 PM - 10:30 PM"}
 ];
 
-const timings = [[730, 1000], [1215, 1445], [1730, 1830], [1945, 2230]]
+const timings = [[730, 1000], [1215, 1445], [1730, 1830], [1945, 2330]]
 
 
 export default function MealTimeline() {
