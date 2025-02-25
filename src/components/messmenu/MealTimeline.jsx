@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import MealBox from "./MealBox";
+import data from '../../data/messmenu.json'
 
 const meals = [
   { name: "Breakfast", time: "7:30 AM - 10:00 AM"},
@@ -11,11 +13,14 @@ const timings = [[730, 1000], [1215, 1445], [1730, 1830], [1945, 2330]]
 
 
 export default function MealTimeline() {
-
+  
   const date = new Date;
   const hours = date.getHours()
   const mins = date.getMinutes()
   const [time, setTime] = useState(hours * 100 + mins)
+
+  const [menuData,setMenuData] = useState(data.menuData);
+  
 
 
   useEffect(() => {
@@ -38,13 +43,13 @@ export default function MealTimeline() {
   return (
     <div className="w-full flex flex-col items-start pl-4 space-y-8 p-6">
       {meals.map((meal, index) => (
-        <TimeSegement index={index} meal={meal} isActive={time>=timings[index][0] && time<=timings[index][1]}/>
+        <TimeSegement index={index} meal={meal} menuData={menuData[index]} isActive={time>=timings[index][0] && time<=timings[index][1]}/>
       ))}
     </div>
   );
 }
 
-function TimeSegement({index,meal,isActive}) {
+function TimeSegement({index,meal,menuData,isActive}) {
 
   const icons = [
     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill={(isActive)? '#0E2277':'#8BA2BA'}><path d="m734-556-56-58 86-84 56 56-86 86ZM80-160v-80h800v80H80Zm360-520v-120h80v120h-80ZM226-558l-84-86 56-56 86 86-58 56Zm71 158h366q-23-54-72-87t-111-33q-62 0-111 33t-72 87Zm-97 80q0-117 81.5-198.5T480-600q117 0 198.5 81.5T760-320H200Zm280-80Z" /></svg>,
@@ -63,34 +68,10 @@ function TimeSegement({index,meal,isActive}) {
         </div>
         <p className={(isActive? 'text-[#1839C6]' : 'text-gray-400')+' text-sm font-medium'}>{meal.time}</p>
       </div>
-      <MealBox />
+      <MealBox menuData={menuData}/>
     </div>
   );
 }
 
-function MealBox() {
-  return (
-    <div className="w-full flex rounded-lg bg-white gap-x-8 border-2 border-[#4661D1] shadow shadow-[#2538C61F] py-4 px-4 divide-x-2 divide-[#CDD7E4]">
-      <div className="flex flex-col gap-y-4 text-sm justify-between text-[#7488DD] font-semibold -tracking-tight pr-6">
-        <span>DAILY</span>
-        <span>SPECIALS</span>
-        <span>REGULARS</span>
-      </div>
-      <div className="flex flex-col gap-y-4 justify-between font-medium -tracking-tight">
-        <span>Methi Aaalo</span>
-        <div className="flex gap-x-2">
-          <span className="flex items-center gap-x-1">
-            <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill='#A9CD30'><path d="M120-120v-720h720v720H120Zm80-80h560v-560H200v560Zm280-120q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Z" /></svg>
-            Methi Aaalo
-          </span>
-          <span className="flex items-center gap-x-1">
-            <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill='#F66063'><path d="M120-120v-720h720v720H120Zm80-80h560v-560H200v560Zm280-120q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Z" /></svg>
-            Methi Aaalo
-          </span>
-        </div>
-        <span>Methi Aaalo</span>
-      </div>
-    </div>
-  )
-}
+
 
