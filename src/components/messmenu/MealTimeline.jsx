@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import MealBox from "./MealBox";
-import data from '../../data/messmenu.json'
+
 
 const meals = [
   { name: "Breakfast", time: "7:30 AM - 10:00 AM"},
@@ -12,14 +12,15 @@ const meals = [
 const timings = [[730, 1000], [1215, 1445], [1730, 1830], [1945, 2330]]
 
 
-export default function MealTimeline() {
+export default function MealTimeline({menuData, selectedOptions}) {
   
   const date = new Date;
   const hours = date.getHours()
   const mins = date.getMinutes()
   const [time, setTime] = useState(hours * 100 + mins)
 
-  const [menuData,setMenuData] = useState(data.menuData);
+  const menuDataArray = [menuData.menuItemBreakfast,menuData.menuItemLunch,menuData.menuItemSnacks,menuData.menuItemDinner];
+
   
 
 
@@ -43,13 +44,13 @@ export default function MealTimeline() {
   return (
     <div className="w-full flex flex-col items-start pl-4 space-y-8 p-6">
       {meals.map((meal, index) => (
-        <TimeSegement index={index} meal={meal} menuData={menuData[index]} isActive={time>=timings[index][0] && time<=timings[index][1]}/>
+        <TimeSegement index={index} meal={meal} menuData={menuDataArray[index]} selectedOptions={selectedOptions} isActive={time>=timings[index][0] && time<=timings[index][1]}/>
       ))}
     </div>
   );
 }
 
-function TimeSegement({index,meal,menuData,isActive}) {
+function TimeSegement({index,meal,menuData,isActive, selectedOptions}) {
 
   const icons = [
     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill={(isActive)? '#0E2277':'#8BA2BA'}><path d="m734-556-56-58 86-84 56 56-86 86ZM80-160v-80h800v80H80Zm360-520v-120h80v120h-80ZM226-558l-84-86 56-56 86 86-58 56Zm71 158h366q-23-54-72-87t-111-33q-62 0-111 33t-72 87Zm-97 80q0-117 81.5-198.5T480-600q117 0 198.5 81.5T760-320H200Zm280-80Z" /></svg>,
@@ -68,7 +69,7 @@ function TimeSegement({index,meal,menuData,isActive}) {
         </div>
         <p className={(isActive? 'text-[#1839C6]' : 'text-gray-400')+' text-sm font-medium'}>{meal.time}</p>
       </div>
-      <MealBox menuData={menuData}/>
+      <MealBox menuData={menuData} selectedOptions={selectedOptions}/>
     </div>
   );
 }
