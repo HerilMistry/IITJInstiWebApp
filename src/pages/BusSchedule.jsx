@@ -2,7 +2,7 @@ import React from 'react'
 
 const BusSchedule = () => {
   return (
-    <div>BusSchedule</div>
+    <div className='h-screen'>BusSchedule</div>
   )
 }
 
